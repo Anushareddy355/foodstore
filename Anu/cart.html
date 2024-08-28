@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <header>
+        <h1>Your Shopping Cart</h1>
+    </header>
+
+    <main>
+        <section class="cart">
+            <div class="cart-item">
+                <img src="image.29.jpg" alt="chapathi">
+                <div class="item-details">
+                    <h2>chapathi</h2>
+                    <p class="price">₹100</p>
+                    <div class="quantity">
+                        <label for="qty1">Quantity:</label>
+                        <input type="number" id="qty1" value="1" min="1">
+                    </div>
+                    <button class="remove-item">Remove</button>
+                </div>
+            </div>
+
+            <div class="cart-item">
+                <img src="image.30.jpg" alt="bhiryani">
+                <div class="item-details">
+                    <h2>bhiryani</h2>
+                    <p class="price">₹200</p>
+                    <div class="quantity">
+                        <label for="qty2">Quantity:</label>
+                        <input type="number" id="qty2" value="1" min="1">
+                    </div>
+                    <button class="remove-item">Remove</button>
+                </div>
+            </div>
+
+            <!-- Additional items would be listed similarly -->
+
+            <div class="cart-summary">
+                <h3>Cart Summary</h3>
+                <p>Total Items: <span id="total-items">2</span></p>
+                <p>Total Price: <span id="total-price">₹300</span></p>
+                <button class="checkout">Proceed to Checkout</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 food Store</p>
+    </footer>
+
+    <script src="cart.js"></script>
+</body>
+</html>
