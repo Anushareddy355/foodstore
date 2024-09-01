@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOOD STORE</title>
+    <link rel="stylesheet" href="products.css">
+</head>
+<body>
+    <header>
+        <h1>FOOD STORE</h1>
+        <li><a href="cart.html">Cart</a></li>   
+        <li><a href="index.html">home</a></li>   
+    </header>
+
+    <main>
+        <section class="product-grid">
+            <article class="product-card">
+                <img src="image.17.jpg" alt="">
+                <h2>nudles</h2>
+                <p class="price">299</p>
+                <button>Add to Cart</button>
+                <button>buy now</button>
+            </article>
+            <article class="product-card">
+                <img src="image.18.jpg" alt="Mobile 1">
+                <h2>veg fry</h2>
+                <p class="price">₹399</p>
+                <button>Add to Cart</button>
+                <button>buy now</button>
+            </article>
+            <article class="product-card">
+                <img src="image.19.jpg" alt="Mobile 3">
+                <h2>kudumulu</h2>
+                <p class="price">₹99</p>
+                <button>Add to Cart</button>
+                <button>buy now</button>
+            </article>
+
+            <article class="product-card">
+                <img src="image.20.jpg" alt="Mobile 4">
+                <h2>edly</h2>
+                <p class="price">₹299</p>
+                <button>Add to Cart</button>
+                <button>buy now</button>
+            </article>
+
+            <article class="product-card">
+                <img src="image.21.jpg" alt="Mobile 5">
+                <h2>putharekulu</h2>
+                <p class="price">₹199</p>
+                <button>Add to Cart</button>
+                <button>buy now</button>
+            </article>
+            <article class="product-card">
+                <img src="image.22.jpg" alt="Mobile 6">
+                <h2>chicken</h2>
+                <p class="price">₹399</p>
+                <button>Add to Cart</button>
+                <button>buy now</button>
+            </article>
+            <article class="product-card">
+                <img src="image.23.jpg" alt="Mobile 7">
+                <h2>parota</h2>
+                <p class="price">₹200</p>
+                <button>Add to Cart</button>
+                <button>buy now</button>
+            </article>
+
+            <article class="product-card">
+                <img src="image.24.jpg" alt="Mobile 8">
+                <h2>poori</h2>
+                <p class="price">₹499</p>
+                <button>Add to Cart</button>
+                <button>buy now</button>
+            </article>
+            <article class="product-card">
+                <img src="image.25.jpg" alt="Mobile 9">
+                <h2>jileby</h2>
+                <p class="price">₹699</p>
+                <button>Add to Cart</button>
+                <button>buy now</button>
+            </article>
+
+            <article class="product-card">
+                <img src="image.26.jpg" alt="Mobile 10">
+                <h2>chicken fry</h2>
+                <p class="price">₹299</p>
+                <button>Add to Cart</button>
+                <button>buy now</button>
+            </article>
+
+            <article class="product-card">
+                <img src="image.27.jpg" alt="Mobile 11">
+                <h2>thaali</h2>
+                <p class="price">₹399</p>
+                <button>Add to Cart</button>
+                <button>buy now</button>
+            </article>
+
+            <article class="product-card">
+                <img src="image.28.jpg" alt="Mobile 12">
+                <h2>bhiryani dhum</h2>
+                <p class="price">₹299</p>
+                <button>Add to Cart</button>
+                <button>buy now</button>
+            </article>
+            <article class="product-card">
+                <img src="image.31.jpg" alt="Mobile 12">
+                <h2>chicken bhiryani</h2>
+                <p class="price">₹299</p>
+                <button>Add to Cart</button>
+                <button>buy now</button>
+            </article>
+
+            <article class="product-card">
+                <img src="image.32.jpg" alt="Mobile 12">
+                <h2>edly</h2>
+                <p class="price">₹299</p>
+                <button>Add to Cart</button>
+                <button>buy now</button>
+            </article>
+            <article class="product-card">
+                <img src="image.25.jpg" alt="Mobile 12">
+                <h2>jyleby</h2>
+                <p class="price">₹299</p>
+                <button>Add to Cart</button>
+                <button>buy now</button>
+            </article>
+
+
+            <!-- Add more products as needed -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 FOOD Store</p>
+    </footer>
+</body>
+</html>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.product-card button').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const card = event.target.closest('.product-card');
+                const name = card.querySelector('h2').textContent;
+                const price = parseFloat(card.querySelector('.price').textContent.replace('₹', ''));
+                const img = card.querySelector('img').src;
+
+                let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+                const existingItem = cartItems.find(item => item.name === name);
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cartItems.push({ name, price, img, quantity: 1 });
+                }
+
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                alert('Item added to cart!');
+            });
+        });
+    });
+</script>
